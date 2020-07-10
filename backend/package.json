@@ -3,10 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "tsc": "tsc"
+  },
   "dependencies": {
+    "@types/express": "^4.17.7",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongoose": "^5.9.23",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "typescript": "^3.9.6"
   }
 }
