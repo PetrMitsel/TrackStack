@@ -1,5 +1,4 @@
 import { Entity, PrimaryGeneratedColumn, CreateDateColumn, Column, EntitySchemaRelationOptions, ManyToOne, OneToMany } from "typeorm";
-import { Url } from "url";
 import { type } from "os";
 import { User } from "./User";
 import { Comment } from "./Comment";
@@ -10,19 +9,25 @@ export class Post {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({
-        nullable: false,
-        length: 500
-    })
+    @Column()
+    title: string;
+
+    @Column("text")
     body: string;
 
-    @Column()
+    @Column({
+        nullable: true
+    })
     soundFileUrl: string;
 
-    @Column()
+    @Column({
+        default: 0
+    })
     upvotes: number;
 
-    @Column()
+    @Column({
+        default: 0
+    })
     downvotes: number;
 
     @ManyToOne(type => User, user => user.posts)

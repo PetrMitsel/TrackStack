@@ -11,19 +11,24 @@ export class User {
 
     @Column({
         length: 15,
-        nullable: false
+        unique: true
     })
     userName: string;
 
     @Column({
-        nullable: false
+        unique: true
     })
     email: string;
 
-    @Column()
+    @Column({
+        default: 0,
+        nullable: true
+    })
     reputation: number;
 
-    @Column()
+    @Column({
+        nullable: true
+    })
     avatarUrl: string;
 
     @CreateDateColumn()

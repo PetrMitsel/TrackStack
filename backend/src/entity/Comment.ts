@@ -1,5 +1,4 @@
 import { Entity, PrimaryGeneratedColumn, CreateDateColumn, Column, EntitySchemaRelationOptions, ManyToOne, OneToMany } from "typeorm";
-import { Url } from "url";
 import { type } from "os";
 import { User } from "./User";
 import { Post } from "./Post";
@@ -11,16 +10,19 @@ export class Comment {
     id: number;
 
     @Column({
-        nullable: false,
         length: 500
     })
     body: string;
 
 
-    @Column()
+    @Column({
+        default: 0
+    })
     upvotes: number;
 
-    @Column()
+    @Column({
+        default: 0
+    })
     downvotes: number;
 
     @ManyToOne(type => User, user => user.comments)

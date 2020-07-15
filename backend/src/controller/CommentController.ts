@@ -1,10 +1,12 @@
 import { getRepository } from "typeorm";
 import { NextFunction, Request, Response } from "express";
 import { Comment } from "../entity/Comment";
+import { Post } from "../entity/Post";
 
 export class CommentController {
 
     private commentRepository = getRepository(Comment);
+    private postRepository = getRepository(Post);
 
     async all(request: Request, response: Response, next: NextFunction) {
         return this.commentRepository.find();
@@ -23,4 +25,8 @@ export class CommentController {
         await this.commentRepository.remove(commentToRemove);
     }
 
+    async all_by_post(request: Request, response: Response, next: NextFunction) {
+        let post = await this.postRepository.findOne(request.params.postid);
+        return post.comments;
+    }
 }

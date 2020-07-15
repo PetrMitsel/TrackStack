@@ -49,6 +49,11 @@ export const Routes = [{
     action: "all"
 }, {
     method: "get",
+    route: "/comments/:postid",
+    controller: CommentController,
+    action: "all_by_post"
+}, {
+    method: "get",
     route: "/comments/:id",
     controller: CommentController,
     action: "one"
