@@ -30,13 +30,13 @@ export class Post {
     })
     downvotes: number;
 
-    @ManyToOne(type => User, user => user.posts)
+    @ManyToOne(type => User, user => user.posts, {eager:true})
     author: User;
 
     @CreateDateColumn()
     createdAt: Date;
 
-    @OneToMany(type => Comment, comment => comment.post)
+    @OneToMany(type => Comment, comment => comment.post, {eager:true})
     comments: Comment[];
 
     //tags

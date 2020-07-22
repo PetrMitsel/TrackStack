@@ -1,29 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState, Props } from 'react';
 import { ListGroup, ListGroupItem, Container, Row, Button, ButtonGroup, ButtonToolbar } from 'react-bootstrap';
 import { Post } from './post'
+import { API_HOST } from '../App'
+import useAsyncEffect from 'use-async-effect'
 
 export const PostList: React.FC = () => {
   //TODO: factor out into API call in componentdidmount()
-  let posts = [
-    {
-      author: "jim",
-      body: "hello",
-      title: "My Hard Beat",
-      votes: 0,
-      comments_count: 0
-    },
-    {
-      author: "Bob",
-      body: "goodbye",
-      title: "My harder beat",
-      votes: 0,
-      comments_count: 0
-    }
-  ];
+
+  const [posts, setPosts] = useState<Array<any>>([]);
+
+  useAsyncEffect(async () => {
+    const response = await fetch(`${API_HOST}/posts`);
+    const data = await response.json();
+    setPosts(data);
+  }, []);
+
   let postList = posts.map((post) => {
     return (
       <ListGroupItem>
-        <Post author={post.author} body={post.body} title={post.title} votes={post.votes} comments_count={post.comments_count}/>
+        <Post author={post.author} body={post.body} title={post.title} votes={post.upvotes} comments_count={post.comments.length}/>
       </ListGroupItem>
     )
   });

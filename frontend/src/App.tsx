@@ -5,7 +5,7 @@ import {MyNavbar} from './components/navbar'
 import { PostList } from "./components/postlist";
 import { Container } from 'react-bootstrap';
 
-const App: React.FC = () => {
+export const App: React.FC = () => {
   return (
     <div className="App">
       <MyNavbar />
@@ -14,4 +14,4 @@ const App: React.FC = () => {
   );
 }
 
-export default App;
+export const API_HOST: string = "http://localhost:4000";

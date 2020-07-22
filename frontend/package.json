@@ -20,7 +20,8 @@
     "react-bootstrap": "^1.2.2",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
-    "typescript": "~3.8.0"
+    "typescript": "~3.8.0",
+    "use-async-effect": "^2.2.2"
   },
   "scripts": {
     "start": "react-scripts start",
