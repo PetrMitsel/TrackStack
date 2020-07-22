@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListGroup, ListGroupItem, Container, Row } from 'react-bootstrap';
+import { ListGroup, ListGroupItem, Container, Row, Button, ButtonGroup, ButtonToolbar } from 'react-bootstrap';
 import { Post } from './post'
 
 export const PostList: React.FC = () => {
@@ -29,11 +29,21 @@ export const PostList: React.FC = () => {
   });
   return (
     <Container className="mt-3">
-      <Row>
-        
-      </Row>
-      <div></div>
       <ListGroup>
+        <ListGroupItem>
+          <div className="post-list-header">
+            <div>
+              Top Tracks
+              <Button className="float-right" variant="dark">Post Track</Button>
+            </div>
+            <div>
+              <ButtonGroup className="float-right" aria-label="First group">
+                <Button variant="outline-dark">Trending</Button>
+                <Button variant="outline-dark">For You</Button>
+              </ButtonGroup>
+            </div>
+          </div>
+        </ListGroupItem>
         {postList}
       </ListGroup>
     </Container>

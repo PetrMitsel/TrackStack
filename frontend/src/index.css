@@ -14,20 +14,16 @@ code {
     monospace;
 }
 
-/* .post{
-  margin-top: 20px;
-} */
-
-.post-author{
-  font-size: large;
+.post-list-header{
   text-align: left;
-}
-
-.post-body{
-  text-align: left;
+  font-size: 30px;
 }
 
 .post-title{
   text-align: left;
   font-size: x-large;
+}
+
+.post-tagline{
+  color: grey;
 }

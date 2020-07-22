@@ -14,15 +14,16 @@ export const Post: React.FC<Props> = ({ author, body, title, votes, comments_cou
   <Container>
     <Row>
       <Col xs={1}>
-              <div>{votes}</div>
-              <div>votes</div>
+        <div>{votes}</div>
+        <div>votes</div>
       </Col>
       <Col xs={1}>
-      <div>{comments_count}</div>
-        <div className="text-left">comments</div>
+        <div>{comments_count}</div>
+        <div>comments</div>
       </Col>
       <Col>
-        <div className="post-title">{title}</div>
+        <div className="post-title ml-3">{title}</div>
+        <div className="float-right mt-1 post-tagline"> posted by {author}</div>
       </Col>
     </Row>
   </Container>
