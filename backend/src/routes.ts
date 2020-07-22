@@ -2,7 +2,9 @@ import { UserController } from "./controller/UserController";
 import { PostController } from "./controller/PostController";
 import { CommentController } from "./controller/CommentController";
 
-export const Routes = [{
+export const Routes = [
+//users
+{
     method: "get",
     route: "/users",
     controller: UserController,
@@ -22,7 +24,9 @@ export const Routes = [{
     route: "/users/:id",
     controller: UserController,
     action: "remove"
-}, {
+},
+//posts
+{
     method: "get",
     route: "/posts",
     controller: PostController,
@@ -42,7 +46,9 @@ export const Routes = [{
     route: "/posts/:id",
     controller: PostController,
     action: "remove"
-}, {
+},
+//Comments
+{
     method: "get",
     route: "/comments",
     controller: CommentController,
