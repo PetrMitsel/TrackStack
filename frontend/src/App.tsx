@@ -3,13 +3,25 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {MyNavbar} from './components/navbar'
 import { PostList } from "./components/postlist";
-import { Container } from 'react-bootstrap';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  RouteComponentProps
+} from "react-router-dom";
+
+
 
 export const App: React.FC = () => {
   return (
     <div className="App">
       <MyNavbar />
-      <PostList/>
+      <Router>
+        <Switch>
+          <Route exact path="/" component= {PostList}/>
+        </Switch>
+      </Router>
     </div>
   );
 }

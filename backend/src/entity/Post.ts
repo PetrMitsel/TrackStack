@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, CreateDateColumn, Column, EntitySchemaRelationOptions, ManyToOne, OneToMany } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, CreateDateColumn, Column, EntitySchemaRelationOptions, ManyToOne, OneToMany, JoinColumn } from "typeorm";
 import { type } from "os";
 import { User } from "./User";
 import { Comment } from "./Comment";
@@ -30,7 +30,8 @@ export class Post {
     })
     downvotes: number;
 
-    @ManyToOne(type => User, user => user.posts, {eager:true})
+    @ManyToOne(type => User, user => user.posts, { eager: true })
+    @JoinColumn({name: 'user_id' })
     author: User;
 
     @CreateDateColumn()

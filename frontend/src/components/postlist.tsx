@@ -1,8 +1,9 @@
 import React, { useEffect, useState, Props } from 'react';
 import { ListGroup, ListGroupItem, Container, Row, Button, ButtonGroup, ButtonToolbar } from 'react-bootstrap';
-import { Post } from './post'
+import { PostPreview } from './post_preview'
 import { API_HOST } from '../App'
 import useAsyncEffect from 'use-async-effect'
+
 
 export const PostList: React.FC = () => {
   //TODO: factor out into API call in componentdidmount()
@@ -18,7 +19,7 @@ export const PostList: React.FC = () => {
   let postList = posts.map((post) => {
     return (
       <ListGroupItem>
-        <Post author={post.author} body={post.body} title={post.title} votes={post.upvotes} comments_count={post.comments.length}/>
+        <PostPreview id={post.id} author={post.author.userName} body={post.body} title={post.title} votes={post.upvotes} comments_count={post.comments.length}/>
       </ListGroupItem>
     )
   });

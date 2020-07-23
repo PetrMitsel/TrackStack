@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Comment: React.FC = () => {
+export const CommentList: React.FC = () => {
   return (
     <div>hello</div>
   );
